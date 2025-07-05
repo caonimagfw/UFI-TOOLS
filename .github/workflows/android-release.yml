@@ -2,7 +2,6 @@ name: Android Release CI
 
 on:
   push:
-    branches: [ "history-3.1.6" ]
 
 jobs:
   upload-release:
@@ -11,6 +10,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: Find APK
         id: find_apk
